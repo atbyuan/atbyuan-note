@@ -1,0 +1,25 @@
+server:
+  port: 8141
+spring:
+  profiles:
+    active: test
+  application:
+    name: note-mysql
+
+# mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  typeAliasesPackage: org.atbyuan.note.entity
+  configuration:
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+      table-underline: true
+
+# 监控
+javamelody:
+  enabled: true
+  init-parameters:
+    log: true

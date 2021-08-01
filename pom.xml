@@ -15,19 +15,22 @@
 
 
     <modules>
+        <module>common</module>
         <module>grammar</module>
+        <module>elasticsearch</module>
+        <module>swagger</module>
+        <module>shardingSphere</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <spring-boot-version>2.3.2.RELEASE</spring-boot-version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <spring-boot-version>2.1.3.RELEASE</spring-boot-version>
 
         <velocity-engine-core.version>2.1</velocity-engine-core.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <mybatis-plus-boot.verison>3.4.1</mybatis-plus-boot.verison>
-        <mybatis-plus.verison>3.4.1</mybatis-plus.verison>
         <pagehelper.version>1.2.12</pagehelper.version>
         <lombok.version>1.18.12</lombok.version>
         <easyexcel.version>2.1.6</easyexcel.version>
@@ -38,26 +41,29 @@
         <commons-lang3.version>3.11</commons-lang3.version>
         <commons-io.version>2.8.0</commons-io.version>
         <commons-pool2.version>2.9.0</commons-pool2.version>
-        <aliyun-openservices.version>1.2.3</aliyun-openservices.version>
         <fastjson.version>1.2.73</fastjson.version>
         <httpmime.version>4.5.12</httpmime.version>
         <jedis.version>2.9.1</jedis.version>
         <hutool.version>5.5.7</hutool.version>
         <ip2region.version>1.7.2</ip2region.version>
         <nacos-config.version>2.1.0.RELEASE</nacos-config.version>
-        <aliyun-mq-http.version>1.0.3</aliyun-mq-http.version>
         <guava.version>30.1-jre</guava.version>
+        <elasticsearch.version>7.2.0</elasticsearch.version>
+        <swagger.version>3.0.0</swagger.version>
+        <sharding.version>4.0.0-RC1</sharding.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <javamelody.version>1.85.0</javamelody.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-dependencies</artifactId>-->
+<!--                <version>${spring-boot-version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <!--springboot 的 web 组件 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -87,11 +93,60 @@
                 <version>${spring-boot-version}</version>
                 <optional>true</optional>
             </dependency>
+            <!-- 鉴权 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot-version}</version>
+            </dependency>
             <!--redis-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
                 <version>${spring-boot-version}</version>
+            </dependency>
+
+            <!--                        数据库相关                        -->
+            <!-- 实现对数据库连接池的自动化配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>${spring-boot-version}</version>
+            </dependency>
+            <!--mybatis-plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot.verison}</version>
+            </dependency>
+            <!--分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- Sharding-JDBC for spring boot -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${sharding.version}</version>
+            </dependency>
+            <!--monitor-->
+            <dependency>
+                <groupId>net.bull.javamelody</groupId>
+                <artifactId>javamelody-spring-boot-starter</artifactId>
+                <version>${javamelody.version}</version>
             </dependency>
             <!--lombok-->
             <dependency>
@@ -119,7 +174,40 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- validator -->
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!-- ES 客户端 -->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <!-- ES 版本 -->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <!-- 引入Swagger3依赖 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

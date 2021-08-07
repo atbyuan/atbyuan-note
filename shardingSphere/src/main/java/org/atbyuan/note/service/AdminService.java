@@ -2,6 +2,7 @@ package org.atbyuan.note.service;
 
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.atbyuan.note.entity.User;
 import org.atbyuan.note.mapper.UserMapper;
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @date 2021/8/1 15:42
  **/
 @Service
-public class AdminService {
+public class AdminService extends ServiceImpl<UserMapper, User> {
 
     private static final Logger logger = LoggerFactory.getLogger(AdminService.class);
 

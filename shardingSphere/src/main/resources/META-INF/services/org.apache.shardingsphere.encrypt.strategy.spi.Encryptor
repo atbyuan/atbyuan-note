@@ -1,0 +1,3 @@
+org.apache.shardingsphere.encrypt.strategy.impl.AESEncryptor
+org.apache.shardingsphere.encrypt.strategy.impl.MD5Encryptor
+org.atbyuan.note.config.OwnEncryptor

@@ -1,4 +1,4 @@
-package org.atbyuan.note.mapper;
+package org.atbyuan.note.mapper.ds2;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

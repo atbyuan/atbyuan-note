@@ -19,7 +19,7 @@ import java.util.Objects;
 @Slf4j
 @Aspect
 @Configuration
-public class DsAspect {
+public class AopAspect {
 
     @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping) " +
             "|| @annotation(org.springframework.web.bind.annotation.GetMapping) " +
@@ -32,16 +32,9 @@ public class DsAspect {
     public void before() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         String path = URLUtil.getPath(request.getRequestURI());
-        log.info("thread:{}", Thread.currentThread());
-        if (path.contains("save")) {
-            DsSelector.set("1");
-        } else {
-            DsSelector.set("2");
-        }
     }
 
     @Before(value = "pointCut()")
     public void after() {
-        DsSelector.remove();
     }
 }

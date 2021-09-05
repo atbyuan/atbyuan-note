@@ -1,5 +1,6 @@
 package org.atbyuan.note.controller;
 
+import org.atbyuan.note.entity.SsUser;
 import org.atbyuan.note.entity.User;
 import org.atbyuan.note.service.AdminService;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author atbyuan
@@ -24,12 +27,22 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @PostMapping("/save")
+    @GetMapping("/1/get/1")
+    public List<SsUser> getSsUser1(@RequestParam("email") String email) {
+        return adminService.getSsUser(email);
+    }
+
+    @GetMapping("/1/get/2")
+    public List<SsUser> getSsUser2(@RequestParam("email") String email) {
+        return adminService.getSsUser2(email);
+    }
+
+    @PostMapping("/2/save")
     public User save(@RequestParam("mobile") String mobile) {
         return adminService.save(mobile);
     }
 
-    @GetMapping("get")
+    @GetMapping("/2/get")
     public User get(@RequestParam("id") Integer id) {
         return adminService.get(id);
     }

@@ -1,8 +1,7 @@
 package org.atbyuan.note.utils;
 
+import lombok.experimental.UtilityClass;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
@@ -10,7 +9,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 
-@SuppressWarnings("restriction")
+@UtilityClass
 public class Encryption {
 
     private static final String key = "987654321qazwsxe";

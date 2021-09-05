@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.encrypt.strategy.spi.Encryptor;
-import org.atbyuan.note.aspect.DsSelector;
 import org.atbyuan.note.utils.Encryption;
 
 import java.util.Properties;
@@ -27,8 +26,6 @@ public class OwnEncryptor implements Encryptor {
 
     @Override
     public String encrypt(final Object plaintext) {
-        String ds = DsSelector.get();
-        log.info("ds:{}, thread:{}", ds, Thread.currentThread());
         if (null == plaintext) {
             return null;
         }

@@ -3,40 +3,18 @@ spring:
   shardingsphere:
     # 数据源配置
     datasource:
-      names: test,desensitization
-      desensitization:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        type: com.zaxxer.hikari.HikariDataSource
-        jdbc-url: jdbc:mysql://localhost:3306/shardingsphere?useUnicode=true&useSSL=true&characterEncoding=utf8
-        username: root
-        password: password
-        max-total: 100
-      test:
+      names: ds1,ds2
+      ds1:
         driver-class-name: com.mysql.cj.jdbc.Driver
         type: com.zaxxer.hikari.HikariDataSource
         jdbc-url: jdbc:mysql://localhost:3306/test?useUnicode=true&useSSL=true&characterEncoding=utf8
         username: root
-        password: password
+        password: root
         max-total: 100
-    encrypt:
-      # 加密器配置
-      encryptors:
-        atbyuan_encryptor:
-          type: own
-      # 脱敏表配置
-      tables:
-        user:
-          columns:
-            mobile:
-              # plainColumn: mobile
-              cipherColumn: mobile
-              encryptor: atbyuan_encryptor
-            password:
-              # plainColumn: password
-              cipherColumn: password
-              encryptor: atbyuan_encryptor
-    props:
-      # 是否使用密文列查询
-      query.with.cipher.column: true
-      # 是否打印SQL，默认false
-#      sql.show: true
+      ds2:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://localhost:3306/dev?useUnicode=true&useSSL=true&characterEncoding=utf8
+        username: root
+        password: root
+        max-total: 100

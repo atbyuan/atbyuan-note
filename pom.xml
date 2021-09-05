@@ -20,6 +20,10 @@
         <module>elasticsearch</module>
         <module>swagger</module>
         <module>shardingSphere</module>
+        <module>flink</module>
+        <module>redis</module>
+        <module>netty</module>
+        <module>mysql</module>
     </modules>
 
     <properties>
@@ -53,6 +57,8 @@
         <sharding-sphere.version>4.1.1</sharding-sphere.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <javamelody.version>1.85.0</javamelody.version>
+        <flink.version>1.13.2</flink.version>
+        <netty.version>4.1.63.Final</netty.version>
     </properties>
 
     <dependencyManagement>
@@ -207,6 +213,27 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+            <!-- flink -->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java_2.11</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients_2.11</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

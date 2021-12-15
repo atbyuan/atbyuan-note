@@ -17,13 +17,9 @@
     <modules>
         <module>common</module>
         <module>grammar</module>
-        <module>elasticsearch</module>
         <module>swagger</module>
         <module>shardingSphere</module>
-        <module>flink</module>
-        <module>redis</module>
-        <module>netty</module>
-        <module>mysql</module>
+        <module>slf4j</module>
     </modules>
 
     <properties>
@@ -81,6 +77,11 @@
                         <artifactId>javafx.base</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+                <version>${spring-boot-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>

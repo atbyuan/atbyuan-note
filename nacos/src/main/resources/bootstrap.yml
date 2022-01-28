@@ -1,0 +1,22 @@
+server:
+  port: 8001
+
+spring:
+  profiles:
+    active: test
+  application:
+    name: note-nacos
+
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        group: nacos
+        namespace: fb18f347-ebfa-4eb9-a4f5-a45cc0b11ee6
+        enableRemoteSyncConfig: true
+        username: nacos
+        password: nacos
+        server-addr: 1.0.0.1:8848
+
+nacos:
+  value: loc

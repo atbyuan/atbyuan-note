@@ -1,4 +1,4 @@
-package org.atbyuan.note.entity;
+package org.atbyuan.note.common.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysUser {
+public class SsUser {
 
     /**
      * 用户id
@@ -31,6 +31,11 @@ public class SysUser {
      * 手机号
      */
     private String mobile;
+
+    /**
+     * 邮箱
+     */
+    private String email;
 
     /**
      * 用户状态：1启用，0禁用

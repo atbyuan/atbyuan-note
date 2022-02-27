@@ -1,4 +1,4 @@
-package org.atbyuan.note.entity;
+package org.atbyuan.note.common.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

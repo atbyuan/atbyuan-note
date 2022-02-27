@@ -1,10 +1,10 @@
-package org.atbyuan.note.config;
+package org.atbyuan.note.shardingsphere.config;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.encrypt.strategy.spi.Encryptor;
-import org.atbyuan.note.utils.Encryption;
+import org.atbyuan.note.shardingsphere.utils.Encryption;
 
 import java.util.Properties;
 

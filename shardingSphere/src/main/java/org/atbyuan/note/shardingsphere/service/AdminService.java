@@ -1,11 +1,11 @@
-package org.atbyuan.note.service;
+package org.atbyuan.note.shardingsphere.service;
 
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.atbyuan.note.entity.SsUser;
-import org.atbyuan.note.entity.User;
-import org.atbyuan.note.mapper.ds1.SsUserMapper;
-import org.atbyuan.note.mapper.ds2.UserMapper;
+import org.atbyuan.note.common.entity.SsUser;
+import org.atbyuan.note.common.entity.User;
+import org.atbyuan.note.shardingsphere.mapper.ds1.SsUserMapper;
+import org.atbyuan.note.shardingsphere.mapper.ds2.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
-package org.atbyuan.note.utils;
+package org.atbyuan.note.shardingsphere.utils;
 
+import cn.hutool.core.codec.Base64;
 import lombok.experimental.UtilityClass;
-import org.apache.tomcat.util.codec.binary.Base64;
-import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -12,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 @UtilityClass
 public class Encryption {
 
-    private static final String key = "987654321qazwsxe";
+    private static final String KEY = "987654321qazwsxe";
 
     /**
      * 加密  与PHP端保持一致
@@ -20,14 +19,14 @@ public class Encryption {
     public static String encryptTerminal(String data) {
         try {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            byte[] raw = key.getBytes();
+            byte[] raw = KEY.getBytes();
             SecretKeySpec keySpec = new SecretKeySpec(raw, "AES");
-            IvParameterSpec iv = new IvParameterSpec(key.getBytes());
+            IvParameterSpec iv = new IvParameterSpec(KEY.getBytes());
             cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
             byte[] encrypted = cipher.doFinal(data.getBytes(StandardCharsets.UTF_8));
 
             // 返回结果删除 ==
-            return new BASE64Encoder().encode(encrypted).replace("==", "");
+            return Base64.encode(encrypted).replace("==", "");
         } catch (Exception e) {
             return null;
         }
@@ -50,10 +49,10 @@ public class Encryption {
             }
             data = builder.toString();
 
-            byte[] encrypted1 = Base64.decodeBase64(data.trim());
+            byte[] encrypted1 = Base64.decode(data.trim());
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            SecretKeySpec keyspec = new SecretKeySpec(key.getBytes(), "AES");
-            IvParameterSpec ivspec = new IvParameterSpec(key.getBytes());
+            SecretKeySpec keyspec = new SecretKeySpec(KEY.getBytes(), "AES");
+            IvParameterSpec ivspec = new IvParameterSpec(KEY.getBytes());
 
             cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
             byte[] original = cipher.doFinal(encrypted1);

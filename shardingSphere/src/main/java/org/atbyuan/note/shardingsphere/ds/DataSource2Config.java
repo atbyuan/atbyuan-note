@@ -1,4 +1,4 @@
-package org.atbyuan.note.ds;
+package org.atbyuan.note.shardingsphere.ds;
 
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.zaxxer.hikari.HikariConfig;

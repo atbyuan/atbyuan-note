@@ -1,8 +1,8 @@
-package org.atbyuan.note.controller;
+package org.atbyuan.note.shardingsphere.controller;
 
-import org.atbyuan.note.entity.SsUser;
-import org.atbyuan.note.entity.User;
-import org.atbyuan.note.service.AdminService;
+import org.atbyuan.note.common.entity.SsUser;
+import org.atbyuan.note.common.entity.User;
+import org.atbyuan.note.shardingsphere.service.AdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

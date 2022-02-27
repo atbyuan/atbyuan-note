@@ -1,9 +1,9 @@
-package org.atbyuan.note.mapper.ds1;
+package org.atbyuan.note.shardingsphere.mapper.ds1;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.atbyuan.note.entity.SsUser;
+import org.atbyuan.note.common.entity.SsUser;
 
 import java.util.List;
 

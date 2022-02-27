@@ -1,4 +1,4 @@
-package org.atbyuan.note.config;
+package org.atbyuan.note.swagger.config;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,7 +43,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
                 .apiInfo(apiInfo()).enable(true)
                 .select()
                 //apis： 添加swagger接口提取范围
-                .apis(RequestHandlerSelectors.basePackage("org.atbyuan.note.controller"))
+                .apis(RequestHandlerSelectors.basePackage("org.atbyuan.note.swagger.controller"))
                 .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 // .paths(PathSelectors.any())

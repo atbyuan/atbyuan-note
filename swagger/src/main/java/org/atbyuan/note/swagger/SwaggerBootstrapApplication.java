@@ -1,4 +1,4 @@
-package org.atbyuan.note;
+package org.atbyuan.note.swagger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

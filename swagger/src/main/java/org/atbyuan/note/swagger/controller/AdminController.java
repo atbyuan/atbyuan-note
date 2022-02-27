@@ -1,4 +1,4 @@
-package org.atbyuan.note.controller;
+package org.atbyuan.note.swagger.controller;
 
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

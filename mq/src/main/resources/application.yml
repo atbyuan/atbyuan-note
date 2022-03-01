@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: note-mq
+  redis:
+    host: localhost
+    password:
+    port: 6379

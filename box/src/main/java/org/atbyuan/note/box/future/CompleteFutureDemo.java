@@ -1,7 +1,7 @@
-package org.atbyuan.note.grammar.future;
+package org.atbyuan.note.box.future;
 
 import com.google.common.collect.Maps;
-import org.atbyuan.note.grammar.string.StringDemo;
+import org.atbyuan.note.box.string.StringDemo;
 
 import java.util.Arrays;
 import java.util.Map;

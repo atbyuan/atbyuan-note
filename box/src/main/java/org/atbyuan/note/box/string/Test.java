@@ -1,4 +1,4 @@
-package org.atbyuan.note.grammar.string;
+package org.atbyuan.note.box.string;
 
 /**
  * @author atbyuan

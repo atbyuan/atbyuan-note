@@ -22,6 +22,8 @@
         <module>rpc</module>
         <module>nacos</module>
         <module>gateway</module>
+        <module>mq</module>
+        <module>spring</module>
     </modules>
 
     <properties>

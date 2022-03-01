@@ -1,8 +1,8 @@
-package org.atbyuan.note.mapper.ds2;
+package org.atbyuan.note.db.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.atbyuan.note.entity.User;
+import org.atbyuan.note.common.entity.User;
 
 /**
  * @author atbyuan
